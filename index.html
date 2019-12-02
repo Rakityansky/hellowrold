@@ -34,6 +34,11 @@
 		attribution: '',
 		id: 'mapbox/streets-v11'
 	}).addTo(map);
+	
+	var imageUrl = 'https://rakityansky.github.io/hellowrold/custommap.png',
+    imageBounds = [[46.219899, 6.145564], [46.224326, 6.151175]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
+	
   function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 
