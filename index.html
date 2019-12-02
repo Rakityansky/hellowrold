@@ -27,7 +27,14 @@
   
 <div id="map"></div>  
 <script>
-	var map = L.map('map').fitWorld();
+	var imageUrl = 'https://rakityansky.github.io/hellowrold/custommap.png',
+    	imageBounds = [[46.219899, 6.145564], [46.224326, 6.151175]];
+	var map = L.map('map',{
+		maxBounds: imageBounds,
+		zoom: 18,
+		minzoom: 18,
+		maxzoom:18
+		});
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -35,8 +42,7 @@
 		id: 'mapbox/streets-v11'
 	}).addTo(map);
 	
-	var imageUrl = 'https://rakityansky.github.io/hellowrold/custommap.png',
-    imageBounds = [[46.219899, 6.145564], [46.224326, 6.151175]];
+	
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 	
   function onLocationFound(e) {
